@@ -9,8 +9,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tile;
     [SerializeField] private Transform camera_transform;
 
+    private Dictionary<Vector2, Tile> tiles;
+
     private void Start()
     {
+        ICommon.LoadGridManager(this);
         GenerateGrid();
     }
 
@@ -18,6 +21,7 @@ public class GridManager : MonoBehaviour
     {
         camera_transform.position = new Vector3((float)grid_w / 2 - 0.5f, (float)grid_h / 2 - 0.5f, -10);
 
+        tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < grid_w; x++)
         {
             for (int y = 0; y < grid_h; y++)
@@ -27,8 +31,21 @@ public class GridManager : MonoBehaviour
 
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                 spanwedTile.Init(isOffset);
+
+                tiles[new Vector2(x, y)] = spanwedTile;
             }
         }
     }
+
+    public Tile GetTileAtPosition(Vector2 pos)
+    {
+        if (tiles.TryGetValue(pos, out var _tile))
+        {
+            return _tile;
+        }
+
+        return null;
+    }
+
     
 }

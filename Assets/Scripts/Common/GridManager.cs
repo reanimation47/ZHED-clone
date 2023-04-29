@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,19 +10,23 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tile;
     [SerializeField] private Transform camera_transform;
 
-    private Dictionary<Vector2, Tile> tiles;
+    public Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
+    public Dictionary<Vector2, int> nodes = new Dictionary<Vector2, int>(); // special tiles
 
     private void Start()
     {
         ICommon.LoadGridManager(this);
         GenerateGrid();
+        addNodes();
+        GenerateNodes();
     }
+
+    //custom methods
 
     private void GenerateGrid()
     {
         camera_transform.position = new Vector3((float)grid_w / 2 - 0.5f, (float)grid_h / 2 - 0.5f, -10);
 
-        tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < grid_w; x++)
         {
             for (int y = 0; y < grid_h; y++)
@@ -37,15 +42,29 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public Tile GetTileAtPosition(Vector2 pos)
+
+    private void addNodes()
     {
-        if (tiles.TryGetValue(pos, out var _tile))
+        nodes.Add(new Vector2(0, 1), 2);
+        nodes.Add(new Vector2(1, 1), 2);
+        nodes.Add(new Vector2(2, 1), 2);
+
+    }
+
+    private void GenerateNodes()
+    {
+        foreach (KeyValuePair<Vector2, int> node in nodes)
         {
-            return _tile;
+
+            //node.Key, node.Value
+            Tile target_tile = ICommon.GetTileAtPosition(node.Key);
+            target_tile.InitNode();
+
         }
 
-        return null;
     }
+
+
 
     
 }

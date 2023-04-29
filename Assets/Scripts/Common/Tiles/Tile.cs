@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color base_color, offset_color;
+    [SerializeField] private Color base_color, offset_color, node_color;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject overlay;
 
@@ -23,6 +23,11 @@ public class Tile : MonoBehaviour
     public void Init(bool isOffset)
     {
         _renderer.color = isOffset ? offset_color : base_color;
+    }
+
+    public void InitNode()
+    {
+        _renderer.color = node_color;
     }
 
     private void OnMouseEnter()

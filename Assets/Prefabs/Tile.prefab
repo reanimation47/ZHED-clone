@@ -132,11 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bdbfa115af94e598bb28a67c032757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_color: {r: 0.4152219, g: 0.8301887, b: 0.41117835, a: 1}
-  offset_color: {r: 0.38921708, g: 0.764151, b: 0.38568, a: 1}
+  base_color: {r: 0.4152219, g: 0.8301887, b: 0.41117835, a: 0.78431374}
+  offset_color: {r: 0.38921708, g: 0.764151, b: 0.38568, a: 0.78431374}
   node_color: {r: 0.21698111, g: 0.21186364, b: 0.21186364, a: 1}
   _renderer: {fileID: 413286461814196650}
   overlay: {fileID: 4026466565294355676}
+  node_number: {fileID: 6204034235999875864}
   state: 0
 --- !u!61 &7392346336445390345
 BoxCollider2D:

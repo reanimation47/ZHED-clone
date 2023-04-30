@@ -11,7 +11,10 @@ public class Tile : MonoBehaviour
 
     public GameObject node_number;
     private TextMeshPro node_number_text;
-    
+
+
+    //values
+    public float node_value;
 
     //states
     public enum tile_state { idle, onhover }
@@ -32,6 +35,8 @@ public class Tile : MonoBehaviour
 
     public void InitNode(float number)
     {
+        node_value = number;
+
         node_number_text = node_number.GetComponent<TextMeshPro>();
         _renderer.color = node_color;
         node_number_text.text = number.ToString();

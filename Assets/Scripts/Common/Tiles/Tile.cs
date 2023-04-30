@@ -30,7 +30,7 @@ public class Tile : MonoBehaviour
         _renderer.color = isOffset ? offset_color : base_color;
     }
 
-    public void InitNode(int number)
+    public void InitNode(float number)
     {
         node_number_text = node_number.GetComponent<TextMeshPro>();
         _renderer.color = node_color;

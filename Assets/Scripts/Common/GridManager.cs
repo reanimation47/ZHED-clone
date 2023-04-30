@@ -10,11 +10,12 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tile;
     [SerializeField] private Transform camera_transform;
 
+    public List<Vector3> node_values;
     public List<Vector2> node_positions;
-    public List<int> node_numbers;
+    public List<float> node_numbers;
 
     public Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
-    public Dictionary<Vector2, int> nodes = new Dictionary<Vector2, int>(); // special tiles
+    public Dictionary<Vector2, float> nodes = new Dictionary<Vector2, float>(); // special tiles
 
     private void Start()
     {
@@ -48,8 +49,12 @@ public class GridManager : MonoBehaviour
 
     private void addNodes()
     {
-        for (int i = 0; i < node_positions.Count; i++)
+
+        for (int i = 0; i < node_values.Count; i++)
         {
+            node_positions.Add(new Vector2(node_values[i].x, node_values[i].y));
+            node_numbers.Add(node_values[i].z);
+
             nodes.Add(node_positions[i], node_numbers[i]);
         }
 
@@ -58,7 +63,7 @@ public class GridManager : MonoBehaviour
 
     private void GenerateNodes()
     {
-        foreach (KeyValuePair<Vector2, int> node in nodes)
+        foreach (KeyValuePair<Vector2, float> node in nodes)
         {
 
             //node.Key, node.Value

@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour
         _renderer.color = isOffset ? offset_color : base_color;
     }
 
-    public void InitNode(float number)
+    public void InitNode(int number)
     {
         node_value = number;
 

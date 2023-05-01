@@ -58,7 +58,6 @@ public class GridManager : MonoBehaviour
             nodes.Add(node_positions[i], node_numbers[i]);
         }
 
-
     }
 
     private void GenerateNodes()

@@ -240,6 +240,11 @@ MonoBehaviour:
   grid_h: 9
   tile: {fileID: 510247863939781751, guid: c00e304f6450e45ee9dd3ac1dd9bf940, type: 3}
   camera_transform: {fileID: 519420032}
+  node_values:
+  - {x: 1, y: 2, z: 3}
+  - {x: 2, y: 5, z: 2}
+  node_positions: []
+  node_numbers: []
 --- !u!4 &1101248313
 Transform:
   m_ObjectHideFlags: 0

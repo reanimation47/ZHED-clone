@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private Color base_color, offset_color, node_color;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject overlay;
+    [SerializeField] private GameObject node_preview;
 
     public GameObject node_number;
     private TextMeshPro node_number_text;

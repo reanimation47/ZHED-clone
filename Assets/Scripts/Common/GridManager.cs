@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour
+public class GridManager : GridExtension
 {
 
     [SerializeField] private int grid_w, grid_h;
     [SerializeField] private Tile tile;
     [SerializeField] private Transform camera_transform;
+
+    //anim values
+    [SerializeField] private float preview_anim_delay;
 
     public List<Vector3Int> node_values;
     public List<Vector2> node_positions;
@@ -64,35 +67,20 @@ public class GridManager : MonoBehaviour
     {
         foreach (KeyValuePair<Vector2, int> node in nodes)
         {
-
             //node.Key, node.Value
             Tile _target_tile = ICommon.GetTileAtPosition(node.Key);
             _target_tile.InitNode(node.Value);
-
         }
 
     }
 
     //custom public methods
-    public void GenerateNodePreviews(Tile target_node)
+    public void ToggleNodePreviews(Tile target_node)
     {
-        Vector2 _node_pos = target_node.transform.position;
-        int _node_value = target_node.node_value;
-
-        for (int i = 1; i <= _node_value; i ++)
+        if ((int)target_node.preview_state == 0)
         {
-            Vector3 _preview_pos = _node_pos + new Vector2(0, i);
-            Tile _preview_tile = ICommon.GetTileAtPosition(_preview_pos);
-            _preview_tile.InitNode(0);
-        }
+            StartCoroutine(CreatePreviews(target_node, preview_anim_delay));
+        }    
     }
 
-    private void CreateVerticalPreviews ()
-    {
-
-    }
-
-
-
-    
 }

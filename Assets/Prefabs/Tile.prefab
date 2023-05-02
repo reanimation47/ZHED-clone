@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bdbfa115af94e598bb28a67c032757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preview_state: 0
   base_color: {r: 0.4152219, g: 0.8301887, b: 0.41117835, a: 0.78431374}
   offset_color: {r: 0.38921708, g: 0.764151, b: 0.38568, a: 0.78431374}
   node_color: {r: 0.21698111, g: 0.21186364, b: 0.21186364, a: 1}
@@ -185,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4881030577673670965
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 3592079760753525657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39896, y: 0.39896, z: 0.39896}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3647246184902538935}

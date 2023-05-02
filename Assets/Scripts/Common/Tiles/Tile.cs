@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Tile : MonoBehaviour
+public class Tile : TileExtension
 {
     [SerializeField] private Color base_color, offset_color, node_color;
     [SerializeField] private SpriteRenderer _renderer;
@@ -14,15 +14,10 @@ public class Tile : MonoBehaviour
 
     public GameObject node_number;
     private TextMeshPro node_number_text;
-    private TileExtension Extension = new TileExtension();
+    //private TileExtension Extension = new TileExtension();
 
     //Dictionaries
-    public Dictionary<preview_states, float> preview_state_to_scale = new Dictionary<preview_states, float>()
-    {
-        {preview_states.disabled, 0f },
-        {preview_states.showpreview, 0.3f },
-        {preview_states.expanded, 1f }
-    };
+    
 
 
     //values
@@ -33,12 +28,10 @@ public class Tile : MonoBehaviour
     public enum tile_state { idle, onhover }
     public tile_state state;
 
-    //preview states
-    public enum preview_states { disabled, showpreview, expanded }
-    public preview_states preview_state;
+    
 
     //specials
-    Vector2 node_preview_scaler = new Vector2 (1,1);
+    Vector2 node_preview_scaler = new Vector2 (0,0);
 
     private GridManager GridManager;
 
@@ -56,18 +49,9 @@ public class Tile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch(preview_state)
-        {
-            case preview_states.disabled:
-                float _target = GetTargetPreviewScaleValue(preview_state);
-                break;
-            case preview_states.showpreview:
-                break;
-            case preview_states.expanded:
-                break;
-            default:
-                break;
-        }
+        float _target = GetTargetPreviewScaleValue(preview_state);
+        node_preview_scaler.x = Mathf.Lerp(node_preview_scaler.x, _target, 0.1f);
+        node_preview_scaler.y = Mathf.Lerp(node_preview_scaler.y, _target, 0.1f);
     }
 
 
@@ -101,8 +85,28 @@ public class Tile : MonoBehaviour
         node_value = _value;
 
         _renderer.color = node_color;
-        Extension.SetTileValue(this);
+        SetTileValue(this);
 
+    }
+
+    public void SetPreviewState(int _state)
+    {
+        switch (_state)
+        {
+            case 0:
+                preview_state = preview_states.disabled;
+                break;
+            case 1:
+                preview_state = preview_states.showpreview;
+                break;
+            case 2:
+                preview_state = preview_states.expanded;
+                break;
+            default: //fallback
+                Debug.LogError("preview state index not in expected range.");
+                preview_state = preview_states.disabled;
+                break;
+        }
     }
 
     public void update_tile_state(tile_state current_state)
@@ -114,19 +118,9 @@ public class Tile : MonoBehaviour
     private void GeneratePreviews()
     {
         if (!is_a_node) { return; } //Do nothing is this tile is not a node
-        GridManager.GenerateNodePreviews(this);
+        GridManager.ToggleNodePreviews(this);
     }
 
-    private float GetTargetPreviewScaleValue(preview_states state)
-    {
-        if (preview_state_to_scale.ContainsKey(state))
-        {
-            return preview_state_to_scale[state];
-        }
-        else
-        {
-            return preview_state_to_scale[preview_states.disabled];
-        }
-    }
+    
 
 }

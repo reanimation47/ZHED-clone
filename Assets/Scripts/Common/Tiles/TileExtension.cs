@@ -4,18 +4,18 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
-public class TileExtension
+public class TileExtension : MonoBehaviour
 {
     
     public TileExtension() { }
-
-    public enum preview_states {disabled, showpreview, expanded}
-    //public preview_states preview_state;
+    //preview states
+    public enum preview_states { disabled, showpreview, expanded }
+    public preview_states preview_state;
 
     public Dictionary<preview_states, float> preview_state_to_scale = new Dictionary<preview_states, float>()
     {
         {preview_states.disabled, 0f },
-        {preview_states.showpreview, 0.3f },
+        {preview_states.showpreview, 0.5f },
         {preview_states.expanded, 1f }
     };
 
@@ -31,7 +31,8 @@ public class TileExtension
         if (preview_state_to_scale.ContainsKey(state))
         {
             return preview_state_to_scale[state];
-        }else
+        }
+        else
         {
             return preview_state_to_scale[preview_states.disabled];
         }

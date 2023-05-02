@@ -66,15 +66,28 @@ public class GridManager : MonoBehaviour
         {
 
             //node.Key, node.Value
-            Tile target_tile = ICommon.GetTileAtPosition(node.Key);
-            target_tile.InitNode(node.Value);
+            Tile _target_tile = ICommon.GetTileAtPosition(node.Key);
+            _target_tile.InitNode(node.Value);
 
         }
 
     }
 
     //custom public methods
-    public void GenerateNodePreviews(Tile target_node, float node)
+    public void GenerateNodePreviews(Tile target_node)
+    {
+        Vector2 _node_pos = target_node.transform.position;
+        int _node_value = target_node.node_value;
+
+        for (int i = 1; i <= _node_value; i ++)
+        {
+            Vector3 _preview_pos = _node_pos + new Vector2(0, i);
+            Tile _preview_tile = ICommon.GetTileAtPosition(_preview_pos);
+            _preview_tile.InitNode(0);
+        }
+    }
+
+    private void CreateVerticalPreviews ()
     {
 
     }

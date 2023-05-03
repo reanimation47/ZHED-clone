@@ -49,11 +49,12 @@ public class Tile : TileExtension
 
     private void FixedUpdate()
     {
+        
         float _target = GetTargetPreviewScaleValue(preview_state);
-        node_preview_scaler.x = Mathf.Lerp(node_preview_scaler.x, _target, 0.1f);
-        node_preview_scaler.y = Mathf.Lerp(node_preview_scaler.y, _target, 0.1f);
+        if (is_a_node) { _target = 0; } //Not showing preview state for nodes
+        node_preview_scaler.x = Mathf.Lerp(node_preview_scaler.x, _target, 0.2f);
+        node_preview_scaler.y = Mathf.Lerp(node_preview_scaler.y, _target, 0.2f);
     }
-
 
     private void OnMouseEnter()
     {
@@ -98,6 +99,7 @@ public class Tile : TileExtension
                 break;
             case 1:
                 preview_state = preview_states.showpreview;
+                //ICommon.RegisterPreviewNode(this);
                 break;
             case 2:
                 preview_state = preview_states.expanded;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using static TileExtension;
 
 public class TileExtension : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TileExtension : MonoBehaviour
     public TileExtension() { }
     //preview states
     public enum preview_states { disabled, showpreview, expanded }
+    //preview states
     public preview_states preview_state;
 
     public Dictionary<preview_states, float> preview_state_to_scale = new Dictionary<preview_states, float>()
@@ -37,5 +39,6 @@ public class TileExtension : MonoBehaviour
             return preview_state_to_scale[preview_states.disabled];
         }
     }
+
 
 }

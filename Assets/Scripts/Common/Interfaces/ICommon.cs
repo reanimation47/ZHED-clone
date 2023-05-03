@@ -31,4 +31,27 @@ public interface ICommon
         return null;
     }
 
+    //Controlling nodes on preview state
+    private static Tile onpreview_tile;
+    public static void RegisterPreviewNode(Tile _tile)
+    {
+        if (onpreview_tile) //if another tile is already registered
+        {
+            ReleasePreviewNode(); // release it
+        } 
+        onpreview_tile = _tile; //register new tile
+    }
+
+    public static void ReleasePreviewNode()
+    {
+        grid_manager.ToggleNodePreviews(onpreview_tile);
+        onpreview_tile = null;
+    }
+
+    public static void ReleasePreviewNodeRaw() //only releasing the variable
+    {
+        onpreview_tile = null;
+    }
+
+
 }

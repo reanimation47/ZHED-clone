@@ -11,7 +11,7 @@ public class GridManager : GridExtension
     [SerializeField] private Transform camera_transform;
 
     //anim values
-    [SerializeField] private float preview_anim_delay;
+    [SerializeField] private float preview_anim_delay = 0.1f;
 
     public List<Vector3Int> node_values;
     public List<Vector2> node_positions;
@@ -79,8 +79,13 @@ public class GridManager : GridExtension
     {
         if ((int)target_node.preview_state == 0)
         {
+            ICommon.RegisterPreviewNode(target_node);
             StartCoroutine(CreatePreviews(target_node, preview_anim_delay));
-        }    
+        }else if ((int)target_node.preview_state == 1)
+        {
+            StartCoroutine(RemovePreviews(target_node, preview_anim_delay));
+            ICommon.ReleasePreviewNodeRaw();
+        }
     }
 
 }

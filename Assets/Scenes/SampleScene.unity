@@ -236,15 +236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ded31eb2fc12491d949a9649d7c6e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid_w: 16
-  grid_h: 9
+  grid_w: 10
+  grid_h: 10
   tile: {fileID: 510247863939781751, guid: c00e304f6450e45ee9dd3ac1dd9bf940, type: 3}
   camera_transform: {fileID: 519420032}
+  preview_anim_delay: 0.1
   node_values:
-  - {x: 1, y: 2, z: 3}
-  - {x: 2, y: 5, z: 2}
+  - {x: 5, y: 3, z: 3}
+  - {x: 7, y: 5, z: 2}
+  - {x: 1, y: 1, z: 5}
   node_positions: []
-  node_numbers: []
+  node_numbers: 
 --- !u!4 &1101248313
 Transform:
   m_ObjectHideFlags: 0

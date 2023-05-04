@@ -108,7 +108,7 @@ public class GridExtension : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(_anim_delay);
+            yield return new WaitForSeconds(_anim_delay/10);
         }
     }
 }

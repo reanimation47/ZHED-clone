@@ -11,7 +11,7 @@ public class GridManager : GridExtension
     [SerializeField] private Transform camera_transform;
 
     //anim values
-    [SerializeField] private float preview_anim_delay = 0.1f;
+    [SerializeField] private float preview_anim_delay = 0.05f;
 
     public List<Vector3Int> node_values;
     public List<Vector2> node_positions;

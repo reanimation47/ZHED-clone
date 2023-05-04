@@ -40,5 +40,31 @@ public class TileExtension : MonoBehaviour
         }
     }
 
+    public void StartExpanding()
+    {
+        StartCoroutine(CoStartExpanding());
+        ICommon.ReleasePreviewNode();
+    }
+
+    private IEnumerator CoStartExpanding()
+    {
+
+        //ICommon.ReleasePreviewNode();
+        Tile _root_node = ICommon.GetRegisteredPreviewNode(); //Getting the root node
+        _root_node.node_expanded = true;
+
+        Vector3 pos_diff = transform.position - _root_node.transform.position;
+        Vector3 pos_diff_direction = pos_diff.normalized;
+        int pos_distance = (int)Vector3.Distance(transform.position, _root_node.transform.position);
+
+        for (int i = 1; i <= pos_distance; i++)
+        {
+            Vector3 _tile_pos = _root_node.transform.position + pos_diff_direction * i;
+            Tile _tile = ICommon.GetTileAtPosition(_tile_pos);
+            _tile.SetPreviewState(2);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
 
 }

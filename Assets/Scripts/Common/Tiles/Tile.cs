@@ -23,6 +23,7 @@ public class Tile : TileExtension
     //values
     public int node_value = 0;
     public bool is_a_node = false;
+    public bool node_expanded = false;
 
     //states
     public enum tile_state { idle, onhover }
@@ -70,7 +71,9 @@ public class Tile : TileExtension
 
     private void OnMouseDown()
     {
+        if (node_expanded) { return; }
         GeneratePreviews();
+        ExpandPreview();
     }
 
     //custom methods
@@ -92,6 +95,10 @@ public class Tile : TileExtension
 
     public void SetPreviewState(int _state)
     {
+        if (preview_state == preview_states.expanded)
+        {
+            return;
+        }
         switch (_state)
         {
             case 0:
@@ -123,6 +130,13 @@ public class Tile : TileExtension
         GridManager.ToggleNodePreviews(this);
     }
 
-    
-
+    private void ExpandPreview()
+    {
+        if (preview_state != preview_states.showpreview || is_a_node)
+        {
+            return; //Do nothing if this tile is not in preview mode OR its a node
+        }
+        node_expanded = true;
+        StartExpanding();
+    }
 }

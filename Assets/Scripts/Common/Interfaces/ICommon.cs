@@ -42,6 +42,11 @@ public interface ICommon
         onpreview_tile = _tile; //register new tile
     }
 
+    public static Tile GetRegisteredPreviewNode()
+    {
+        return onpreview_tile;
+    }
+
     public static void ReleasePreviewNode()
     {
         grid_manager.ToggleNodePreviews(onpreview_tile);

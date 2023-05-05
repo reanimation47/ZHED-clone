@@ -70,7 +70,7 @@ public class GridExtension : MonoBehaviour
         if (_preview_tile) //If such tile exists
         {
             ICommon.RegisterNewPreviewTile(_preview_tile);
-            if (_preview_tile.isExpanded())
+            if (_preview_tile.isExpandedOrIsANode())
             {
                 if (_direction == Vector2.up)
                 {
@@ -106,7 +106,7 @@ public class GridExtension : MonoBehaviour
         ICommon.RegisterNewPreviewTile(_extra_tile);
         _extra_tile.SetPreviewState(_target_state);
 
-        if (_extra_tile.isExpanded())
+        if (_extra_tile.isExpandedOrIsANode())
         {
             CreateExtraPreviews(_target_state, _node_pos, _node_value, _direction, ref _extra_var_ref);
         }

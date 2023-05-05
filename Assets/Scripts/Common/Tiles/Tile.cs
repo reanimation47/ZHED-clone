@@ -144,8 +144,8 @@ public class Tile : TileExtension
         node_expanded = true;
     }
 
-    public bool isExpanded()
+    public bool isExpandedOrIsANode()
     {
-        return preview_state == preview_states.expanded;
+        return preview_state == preview_states.expanded || is_a_node;
     }
 }

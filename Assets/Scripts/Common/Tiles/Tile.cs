@@ -98,6 +98,11 @@ public class Tile : TileExtension
 
     }
 
+    public void InitGoalNode()
+    {
+        node_goal.SetActive(true);
+    }
+
     public void SetPreviewState(int _state)
     {
         if (preview_state == preview_states.expanded)

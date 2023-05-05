@@ -77,6 +77,11 @@ public class GridManager : GridExtension
     //custom public methods
     public void ToggleNodePreviews(Tile target_node)
     {
+        if (target_node.IsAnExpandedThroughNode())
+        {
+            target_node.ForceSetDefaultPreviewMode();
+        }
+
         if ((int)target_node.preview_state == 0)
         {
             ICommon.RegisterPreviewNode(target_node);

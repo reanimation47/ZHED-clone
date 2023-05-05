@@ -143,4 +143,9 @@ public class Tile : TileExtension
     {
         node_expanded = true;
     }
+
+    public bool isExpanded()
+    {
+        return node_expanded;
+    }
 }

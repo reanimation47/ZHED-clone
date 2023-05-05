@@ -71,7 +71,7 @@ public class Tile : TileExtension
 
     private void OnMouseDown()
     {
-        if (node_expanded) { return; }
+        if (node_expanded) { return; } //once expanded, this node is longer clickable
         GeneratePreviews();
         ExpandPreview();
     }
@@ -106,7 +106,6 @@ public class Tile : TileExtension
                 break;
             case 1:
                 preview_state = preview_states.showpreview;
-                //ICommon.RegisterPreviewNode(this);
                 break;
             case 2:
                 preview_state = preview_states.expanded;
@@ -138,5 +137,10 @@ public class Tile : TileExtension
         }
         node_expanded = true;
         StartExpanding();
+    }
+
+    public void NodeExpanded()
+    {
+        node_expanded = true;
     }
 }

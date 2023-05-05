@@ -51,7 +51,7 @@ public class TileExtension : MonoBehaviour
 
         //ICommon.ReleasePreviewNode();
         Tile _root_node = ICommon.GetRegisteredPreviewNode(); //Getting the root node
-        _root_node.node_expanded = true;
+        _root_node.NodeExpanded();
 
         Vector3 pos_diff = transform.position - _root_node.transform.position;
         Vector3 pos_diff_direction = pos_diff.normalized;

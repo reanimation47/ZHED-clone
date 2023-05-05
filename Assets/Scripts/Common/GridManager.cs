@@ -14,8 +14,9 @@ public class GridManager : GridExtension
     [SerializeField] private float preview_anim_delay = 0.05f;
 
     public List<Vector3Int> node_values;
-    public List<Vector2> node_positions;
-    public List<int> node_numbers;
+    public Vector2Int goal_node_position;
+    [HideInInspector]public List<Vector2> node_positions;
+    [HideInInspector]public List<int> node_numbers;
 
     public Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
     public Dictionary<Vector2, int> nodes = new Dictionary<Vector2, int>(); // special tiles
@@ -72,11 +73,19 @@ public class GridManager : GridExtension
             _target_tile.InitNode(node.Value);
         }
 
+        Tile _goal_node = ICommon.GetTileAtPosition(goal_node_position);
+        _goal_node.InitGoalNode();
+
     }
 
     //custom public methods
     public void ToggleNodePreviews(Tile target_node)
     {
+        if (target_node.IsAnExpandedThroughNode())
+        {
+            target_node.ForceSetDefaultPreviewMode();
+        }
+
         if ((int)target_node.preview_state == 0)
         {
             ICommon.RegisterPreviewNode(target_node);

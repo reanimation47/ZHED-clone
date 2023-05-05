@@ -9,6 +9,7 @@ public class Tile : TileExtension
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject overlay;
     [SerializeField] private GameObject node_preview;
+    [SerializeField] private GameObject node_goal;
 
 
 
@@ -53,6 +54,10 @@ public class Tile : TileExtension
         
         float _target = GetTargetPreviewScaleValue(preview_state);
         if (is_a_node) { _target = 0; } //Not showing preview state for nodes
+        if (is_a_node && node_expanded)
+        {
+            _target = 1;
+        }
         node_preview_scaler.x = Mathf.Lerp(node_preview_scaler.x, _target, 0.2f);
         node_preview_scaler.y = Mathf.Lerp(node_preview_scaler.y, _target, 0.2f);
     }
@@ -91,6 +96,11 @@ public class Tile : TileExtension
         _renderer.color = node_color;
         SetTileValue(this);
 
+    }
+
+    public void InitGoalNode()
+    {
+        node_goal.SetActive(true);
     }
 
     public void SetPreviewState(int _state)
@@ -147,5 +157,15 @@ public class Tile : TileExtension
     public bool isExpandedOrIsANode()
     {
         return preview_state == preview_states.expanded || is_a_node;
+    }
+
+    public bool IsAnExpandedThroughNode()
+    {
+        return is_a_node && preview_state == preview_states.expanded;
+    }
+
+    public void ForceSetDefaultPreviewMode()
+    {
+        preview_state = preview_states.disabled;
     }
 }

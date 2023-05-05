@@ -150,12 +150,17 @@ public class GridExtension : MonoBehaviour
         }
     }
 
-    private void CreateExtraPreviews(int _target_state, Vector2 _node_pos, int _node_value, Vector2 _dirrection, ref int _extra_var_ref)
+    private void CreateExtraPreviews(int _target_state, Vector2 _node_pos, int _node_value, Vector2 _direction, ref int _extra_var_ref)
     {
         _extra_var_ref = _target_state == 1 ? _extra_var_ref + 1 : _extra_var_ref;
-        Vector3 _extra_pos = _node_pos + _dirrection * (_node_value + _extra_var_ref);
+        Vector3 _extra_pos = _node_pos + _direction * (_node_value + _extra_var_ref);
         Tile _extra_tile = ICommon.GetTileAtPosition(_extra_pos);
         _extra_tile.SetPreviewState(_target_state);
+
+        if (_extra_tile.isExpanded())
+        {
+            CreateExtraPreviews(_target_state, _node_pos, _node_value, _direction, ref _extra_var_ref);
+        }
     }
 
     

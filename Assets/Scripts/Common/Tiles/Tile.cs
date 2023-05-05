@@ -146,6 +146,6 @@ public class Tile : TileExtension
 
     public bool isExpanded()
     {
-        return node_expanded;
+        return preview_state == preview_states.expanded;
     }
 }

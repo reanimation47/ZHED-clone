@@ -24,6 +24,7 @@ public class Tile : TileExtension
     //values
     public int node_value = 0;
     public bool is_a_node = false;
+    public bool is_a_goal_node = false;
     public bool node_expanded = false;
 
     //states
@@ -95,11 +96,11 @@ public class Tile : TileExtension
 
         _renderer.color = node_color;
         SetTileValue(this);
-
     }
 
     public void InitGoalNode()
     {
+        is_a_goal_node = true;
         node_goal.SetActive(true);
     }
 
@@ -125,6 +126,8 @@ public class Tile : TileExtension
                 preview_state = preview_states.disabled;
                 break;
         }
+
+        CheckIfGoalNodeReached();
     }
 
     public void update_tile_state(tile_state current_state)
@@ -167,5 +170,12 @@ public class Tile : TileExtension
     public void ForceSetDefaultPreviewMode()
     {
         preview_state = preview_states.disabled;
+    }
+
+    public void CheckIfGoalNodeReached()
+    {
+        if (preview_state != preview_states.expanded) { return; }
+        if (!is_a_goal_node) { return; }
+        Debug.LogError("Goal reached!");
     }
 }

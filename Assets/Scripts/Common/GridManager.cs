@@ -14,9 +14,10 @@ public class GridManager : GridExtension
     [SerializeField] private float preview_anim_delay = 0.05f;
 
     public List<Vector3Int> node_values;
-    public Vector2Int goal_node_position;
     [HideInInspector]public List<Vector2> node_positions;
     [HideInInspector]public List<int> node_numbers;
+
+    public Vector2Int goal_node_position;
 
     public Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
     public Dictionary<Vector2, int> nodes = new Dictionary<Vector2, int>(); // special tiles

@@ -14,8 +14,8 @@ public class GridManager : GridExtension
     [SerializeField] private float preview_anim_delay = 0.05f;
 
     public List<Vector3Int> node_values;
-    [HideInInspector]public List<Vector2> node_positions;
-    [HideInInspector]public List<int> node_numbers;
+    //[HideInInspector]public List<Vector2> node_positions;
+    //[HideInInspector]public List<int> node_numbers;
 
     public Vector2Int goal_node_position;
 
@@ -57,10 +57,13 @@ public class GridManager : GridExtension
 
         for (int i = 0; i < node_values.Count; i++)
         {
-            node_positions.Add(new Vector2(node_values[i].x, node_values[i].y));
-            node_numbers.Add(node_values[i].z);
+            //node_positions.Add(new Vector2(node_values[i].x, node_values[i].y));
+            //node_numbers.Add(node_values[i].z);
 
-            nodes.Add(node_positions[i], node_numbers[i]);
+            var _node_pos = new Vector2(node_values[i].x, node_values[i].y);
+            var _node_value = node_values[i].z;
+
+            nodes.Add(_node_pos, _node_value);
         }
 
     }

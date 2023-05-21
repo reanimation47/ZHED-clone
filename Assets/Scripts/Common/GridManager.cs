@@ -74,7 +74,13 @@ public class GridManager : GridExtension
         {
             //node.Key, node.Value
             Tile _target_tile = ICommon.GetTileAtPosition(node.Key);
-            _target_tile.InitNode(node.Value);
+            if (_target_tile)
+            {
+                _target_tile.InitNode(node.Value);
+            }else //invalid node
+            {
+                Debug.LogError("Provided position is out of range. Cannot generate invalid node at: " + (node.Key).ToString());
+            }
         }
 
         Tile _goal_node = ICommon.GetTileAtPosition(goal_node_position);

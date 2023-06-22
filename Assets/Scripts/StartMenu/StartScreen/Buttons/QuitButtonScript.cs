@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace StartMenu.Buttons
+namespace StartMenu.StarScreen.Buttons
 {
     public class QuitButtonScript : BasicButtonClass
     {

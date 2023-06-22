@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace StartMenu.Buttons
+namespace StartMenu.LevelPacksScreen.Buttons
 {
-    public class PlayButtonScript : BasicButtonClass
+    public class PackSelectButton : BasicButtonClass
     {
+        public int PackIndex;
         public override void ButtonAction()
         {
-            
+
         }
     }
 }

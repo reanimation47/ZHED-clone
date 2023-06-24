@@ -28,6 +28,10 @@ namespace StartMenu
             CurrentLevelPackIndex = index;
             LevelPacksController.LevelPackSelected(index);
         }
+        public static int GetCurrentSelectedPack()
+        {
+            return CurrentLevelPackIndex;
+        }
 
         //LevelsSelectController
         private static int CurrentLevelIndex = 0;
@@ -40,6 +44,10 @@ namespace StartMenu
         {
             CurrentLevelIndex = index;
             LevelsSelectController.LevelSelected(index);
+        }
+        public static int GetCurrentSelectedLevel()
+        {
+            return CurrentLevelIndex;
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace StartMenu.LevelsScreen
 {
     public class LevelsSelectController : MonoBehaviour
@@ -39,11 +40,17 @@ namespace StartMenu.LevelsScreen
         {
             AlphaMask.ToggleBackgroundBlur(1, 0.2f);
             yield return new WaitForSeconds(1f);
-            //AsyncOperation async_load = SceneManager.LoadSceneAsync(configuration.PackSelectSceneName);
-            //while (!async_load.isDone)
-            //{
-            //    yield return null;
-            //}
+
+            int CurrentPackIndex = IStartMenu.GetCurrentSelectedPack();
+            int CurrentLevelIndex = IStartMenu.GetCurrentSelectedLevel();
+            string SceneNameFormat = configuration.LevelsSceneNameFormat;
+            string FinalSceneName = string.Format(SceneNameFormat, CurrentPackIndex, CurrentLevelIndex);
+
+            AsyncOperation async_load = SceneManager.LoadSceneAsync(FinalSceneName);
+            while (!async_load.isDone)
+            {
+                yield return null;
+            }
         }
     }
 }

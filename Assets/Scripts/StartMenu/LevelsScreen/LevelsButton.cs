@@ -10,6 +10,7 @@ namespace StartMenu.LevelsScreen
         private int LevelIndex;
         public TextMeshProUGUI title;
 
+        private BaseConfiguration configuration = new BaseConfiguration();
 
         public void LevelButtonInit(int _index)
         {
@@ -31,6 +32,7 @@ namespace StartMenu.LevelsScreen
 
         public override void ButtonAction()
         {
+            Debug.Log(string.Format(configuration.LevelsSceneNameFormat, IStartMenu.GetCurrentSelectedPack(), LevelIndex));
             IStartMenu.LevelSelected(LevelIndex);
         }
     }

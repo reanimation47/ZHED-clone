@@ -16,6 +16,7 @@ namespace StartMenu
         void Start()
         {
             rectTransform = GetComponent<RectTransform>();
+            SetupAtStart();
         }
 
         private void Update()
@@ -31,17 +32,21 @@ namespace StartMenu
 
         public void OnPointerDown(PointerEventData e)
         {
+            //Debug.Log(e.IsPointerMoving());
             target = 0.8f;
         }
 
         public void OnPointerUp(PointerEventData e)
         {
             target = 1f;
-            //IStage.TogglePopup(false);
-            //IStage.DisableCurrentHighlightedStage();
+            if (e.IsPointerMoving()) { return; } //Return if user is swiping
             ButtonAction();
         }
 
+        public virtual void SetupAtStart()
+        {
+
+        }
         public abstract void ButtonAction();
     }
 }

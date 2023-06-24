@@ -414,9 +414,11 @@ MonoBehaviour:
   camera_transform: {fileID: 519420032}
   preview_anim_delay: 0.1
   node_values:
-  - {x: 2, y: 3, z: 2}
+  - {x: 3, y: 5, z: 2}
+  - {x: 1, y: 3, z: 2}
+  - {x: 2, y: 2, z: 1}
   - {x: 4, y: 2, z: 2}
-  goal_node_position: {x: 4, y: 5}
+  goal_node_position: {x: 6, y: 5}
 --- !u!4 &1101248313
 Transform:
   m_ObjectHideFlags: 0

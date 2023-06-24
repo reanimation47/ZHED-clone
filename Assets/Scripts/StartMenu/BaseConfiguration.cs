@@ -14,7 +14,7 @@ namespace StartMenu
         public readonly string LevelSelectSceneName = "LevelsSelect";
         public readonly string LevelsSceneNameFormat = "Pack{0}Level{1}";
         public readonly int PacksCount = 5;
-        public readonly int LevelsPerPack = 10;
+        public readonly int LevelsPerPack = 12;
     }
 }
 

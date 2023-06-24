@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preview_state: 0
-  base_color: {r: 0.4152219, g: 0.8301887, b: 0.41117835, a: 0.78431374}
-  offset_color: {r: 0.38921708, g: 0.764151, b: 0.38568, a: 0.78431374}
+  base_color: {r: 1, g: 0.9843137, b: 0.9882353, a: 0.78431374}
+  offset_color: {r: 0.8962264, g: 0.875089, b: 0.88037336, a: 0.78431374}
   node_color: {r: 0.21698111, g: 0.21186364, b: 0.21186364, a: 1}
   _renderer: {fileID: 413286461814196650}
   overlay: {fileID: 4026466565294355676}
@@ -145,6 +145,7 @@ MonoBehaviour:
   node_number: {fileID: 6204034235999875864}
   node_value: 0
   is_a_node: 0
+  is_a_goal_node: 0
   node_expanded: 0
   state: 0
 --- !u!61 &7392346336445390345
@@ -247,7 +248,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8018868, g: 0.3063813, b: 0.346343, a: 1}
+  m_Color: {r: 0.78039217, g: 0.24313726, b: 0.11372549, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Core;
 namespace StartMenu.LevelsScreen
 {
     public class LevelsSelectController : MonoBehaviour
@@ -45,12 +46,19 @@ namespace StartMenu.LevelsScreen
             int CurrentLevelIndex = IStartMenu.GetCurrentSelectedLevel();
             string SceneNameFormat = configuration.LevelsSceneNameFormat;
             string FinalSceneName = string.Format(SceneNameFormat, CurrentPackIndex, CurrentLevelIndex);
+            SaveInfoToPlayerPrefs(CurrentPackIndex, CurrentLevelIndex);
 
             AsyncOperation async_load = SceneManager.LoadSceneAsync(FinalSceneName);
             while (!async_load.isDone)
             {
                 yield return null;
             }
+        }
+
+        private void SaveInfoToPlayerPrefs(int PackIndex, int LevelIndex)
+        {
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentLevelIndex_Key, LevelIndex);
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentPackIndex_Key, PackIndex);
         }
     }
 }

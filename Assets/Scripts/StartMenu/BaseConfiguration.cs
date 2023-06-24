@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 namespace StartMenu
 {
-    public enum Packs
+    public enum PlayerPrefsKey
     {
 
     }

@@ -11,6 +11,7 @@ namespace StartMenu.LevelPacksScreen.Buttons
     {
         private int PackIndex;
         public TextMeshProUGUI title;
+
         public Image img;
         private Color LockedColor = new Color(145f / 255f, 151f / 255f, 174f / 255f);
 
@@ -25,10 +26,9 @@ namespace StartMenu.LevelPacksScreen.Buttons
         public void CheckProgress()
         {
             int CurrentUnlockedPack = PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_UnlockedPackIndex_Key);
-            Debug.Log(CurrentUnlockedPack);
             if (PackIndex > CurrentUnlockedPack)
             {
-                Debug.Log("Locked");
+                PackUnlocked = false;
                 img.color = LockedColor;
             }else
             {

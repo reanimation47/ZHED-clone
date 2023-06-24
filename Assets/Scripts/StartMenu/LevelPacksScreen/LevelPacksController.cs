@@ -39,8 +39,8 @@ namespace StartMenu.LevelPacksScreen
         }
         IEnumerator Co_LevelPackSelected()
         {
-            AlphaMask.ToggleBackgroundBlur(1, 0.2f);
-            yield return new WaitForSeconds(1f);
+            AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
+            yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
             AsyncOperation async_load = SceneManager.LoadSceneAsync(configuration.LevelSelectSceneName);
             while (!async_load.isDone)
             {

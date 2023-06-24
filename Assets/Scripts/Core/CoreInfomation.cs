@@ -6,6 +6,7 @@ namespace Core
 {
     public static class CoreInfomation 
     {
+        public static readonly string StartMenuSceneName = "StartMenu";
         public static readonly string PackSelectSceneName = "LevelPacksSelect";
         public static readonly string LevelSelectSceneName = "LevelsSelect";
         public static readonly string LevelsSceneNameFormat = "Pack{0}Level{1}";

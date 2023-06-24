@@ -21,8 +21,8 @@ namespace StartMenu.StarScreen
         }
         IEnumerator GoToPacksSelectScreen()
         {
-            AlphaMask.ToggleBackgroundBlur(1, 0.2f);
-            yield return new WaitForSeconds(1f);
+            AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
+            yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
             AsyncOperation async_load = SceneManager.LoadSceneAsync(configuration.PackSelectSceneName);
             while (!async_load.isDone)
             {

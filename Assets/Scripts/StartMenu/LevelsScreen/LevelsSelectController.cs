@@ -39,8 +39,8 @@ namespace StartMenu.LevelsScreen
         }
         IEnumerator Co_LevelSelected()
         {
-            AlphaMask.ToggleBackgroundBlur(1, 0.2f);
-            yield return new WaitForSeconds(1f);
+            AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
+            yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
 
             int CurrentPackIndex = IStartMenu.GetCurrentSelectedPack();
             int CurrentLevelIndex = IStartMenu.GetCurrentSelectedLevel();

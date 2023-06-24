@@ -16,6 +16,9 @@ namespace StartMenu
         public readonly string LevelsSceneNameFormat = CoreInfomation.LevelsSceneNameFormat;
         public readonly int PacksCount = CoreInfomation.PacksCount;
         public readonly int LevelsPerPack = CoreInfomation.LevelsPerPack;
+
+        public readonly float TransitionSpeedBetweenScreens = 0.3f;
+        public readonly float TransitionDelayBetweenScreens = 0.5f;
     }
 }
 

@@ -16,6 +16,8 @@ namespace StartMenu.StarScreen
             IStartMenu.Load_StartScreenController(this);
             GeneratePlayerPrefsForProgress();
             DebugCurrentProgress();
+            Application.targetFrameRate = 60;
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
         }
 
         private void DebugCurrentProgress()

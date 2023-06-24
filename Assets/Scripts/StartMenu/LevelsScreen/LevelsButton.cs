@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Codice.Client.GameUI.Checkin;
 using Core;
 using TMPro;
 using UnityEngine;

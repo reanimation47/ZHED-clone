@@ -7,7 +7,7 @@ namespace StartMenu.StarScreen.Buttons
     {
         public override void ButtonAction()
         {
-
+            Application.Quit();
         }
     }
 }

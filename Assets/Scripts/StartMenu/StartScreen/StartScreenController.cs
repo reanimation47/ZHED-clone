@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Core;
 
 namespace StartMenu.StarScreen
 {
@@ -13,6 +14,25 @@ namespace StartMenu.StarScreen
         private void Awake()
         {
             IStartMenu.Load_StartScreenController(this);
+            GeneratePlayerPrefsForProgress();
+            DebugCurrentProgress();
+        }
+
+        private void DebugCurrentProgress()
+        {
+            if (PlayerPrefs.HasKey(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key))
+            {
+                Debug.Log("Current Pack: " + PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_UnlockedPackIndex_Key));
+                Debug.Log("Current Level: " + PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key));
+            }
+        }
+
+        private void GeneratePlayerPrefsForProgress()
+        {
+            if (PlayerPrefs.HasKey(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key)) { return; } //Already generated
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key, 1);
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_UnlockedPackIndex_Key, 1);
+            Debug.Log("PlayerPrefs For Progress generated!");
         }
 
         public void PlayButtonClicked()

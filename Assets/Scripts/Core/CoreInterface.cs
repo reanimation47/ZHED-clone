@@ -12,20 +12,39 @@ namespace Core
             int CurrentLevelIndex = PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_CurrentLevelIndex_Key);
             int CurrentPackIndex = PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_CurrentPackIndex_Key);
 
-            int NewLevelIndex = CurrentLevelIndex +1;
-            int NewPackIndex = CurrentPackIndex;
+            int NextLevelIndex = CurrentLevelIndex +1;
+            int NextPackIndex = CurrentPackIndex;
 
-            if (NewLevelIndex > CoreInfomation.LevelsPerPack)
+            if (NextLevelIndex > CoreInfomation.LevelsPerPack)
             {
-                NewLevelIndex = 1;
-                NewPackIndex += 1;
+                NextLevelIndex = 1;
+                NextPackIndex += 1;
             }
-            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentLevelIndex_Key, NewLevelIndex);
-            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentPackIndex_Key, NewPackIndex);
+            SaveNewProgress(NextLevelIndex, NextPackIndex);
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentLevelIndex_Key, NextLevelIndex);
+            PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_CurrentPackIndex_Key, NextPackIndex);
 
-            string NextLevelSceneName = string.Format(CoreInfomation.LevelsSceneNameFormat, NewPackIndex, NewLevelIndex);
+            string NextLevelSceneName = string.Format(CoreInfomation.LevelsSceneNameFormat, NextPackIndex, NextLevelIndex);
             SceneManager.LoadScene(NextLevelSceneName);
             //string.Format(configuration.LevelsSceneNameFormat, IStartMenu.GetCurrentSelectedPack(), LevelIndex)
+        }
+
+        public static void SaveNewProgress(int NextLevelIndex, int NextPackIndex)
+        {
+            int CurrentLevelProgress = PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key);
+            int CurrentPackProgress = PlayerPrefs.GetInt(CoreInfomation.PlayerPrefs_UnlockedPackIndex_Key);
+
+            if (NextPackIndex == CurrentPackProgress)
+            {
+                if (NextLevelIndex > CurrentLevelProgress)
+                {
+                    PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key, CurrentLevelProgress + 1);
+                }
+            }else if(NextPackIndex > CurrentPackProgress)
+            {
+                PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_UnlockedPackIndex_Key, CurrentPackProgress + 1);
+                PlayerPrefs.SetInt(CoreInfomation.PlayerPrefs_UnlockedLevelIndex_Key, 1);
+            }
         }
 
     }

@@ -10,7 +10,10 @@ namespace StartMenu
 
     public class BaseConfiguration 
     {
+        public readonly string PackSelectSceneName = "LevelPacksSelect";
+        public readonly string LevelSelectSceneName = "LevelsSelect";
         public readonly int PacksCount = 5;
+        public readonly int LevelsPerPack = 10;
     }
 }
 

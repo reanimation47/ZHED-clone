@@ -29,7 +29,7 @@ namespace StartMenu.LevelPacksScreen.Buttons
         
         public override void ButtonAction()
         {
-            Debug.Log("clicked");
+            IStartMenu.LevelPackSelected(PackIndex);
         }
     }
 }

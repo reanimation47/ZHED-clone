@@ -11,11 +11,11 @@ namespace StartMenu
 
     public class BaseConfiguration 
     {
-        public readonly string PackSelectSceneName = "LevelPacksSelect";
-        public readonly string LevelSelectSceneName = "LevelsSelect";
-        public readonly string LevelsSceneNameFormat = "Pack{0}Level{1}";
-        public readonly int PacksCount = 5;
-        public readonly int LevelsPerPack = 12;
+        public readonly string PackSelectSceneName = CoreInfomation.PackSelectSceneName;
+        public readonly string LevelSelectSceneName = CoreInfomation.LevelSelectSceneName;
+        public readonly string LevelsSceneNameFormat = CoreInfomation.LevelsSceneNameFormat;
+        public readonly int PacksCount = CoreInfomation.PacksCount;
+        public readonly int LevelsPerPack = CoreInfomation.LevelsPerPack;
     }
 }
 

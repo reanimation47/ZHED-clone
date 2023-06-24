@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using GamePlay.Grid;
+using Core;
 
 namespace GamePlay.Tiles
 {
@@ -180,6 +181,13 @@ namespace GamePlay.Tiles
             if (preview_state != preview_states.expanded) { return; }
             if (!is_a_goal_node) { return; }
             Debug.LogError("Goal reached!");
+            StartCoroutine(CoLoadNextLevel());
+        }
+
+        IEnumerator CoLoadNextLevel()
+        {
+            yield return new WaitForSeconds(1f);
+            CoreInterface.LoadNextLevel();
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Core.Button;
+using Core;
 
 namespace GamePlay
 {
@@ -10,14 +11,16 @@ namespace GamePlay
     {
         private enum ButtonType { Restart, Quit}
         [SerializeField] private ButtonType button_type;
+        
         public override void ButtonAction()
         {
             if (button_type == ButtonType.Restart)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }else
+            }
+            else
             {
-
+                SceneManager.LoadScene(CoreInfomation.LevelSelectSceneName);
             }
         }
     }

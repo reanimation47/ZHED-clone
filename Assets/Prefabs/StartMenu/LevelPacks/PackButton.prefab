@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2291426140381139323}
   - component: {fileID: 2291426140381139322}
   - component: {fileID: 2291426140381139588}
+  - component: {fileID: 6056886450233619920}
   m_Layer: 5
   m_Name: PackButton
   m_TagString: Untagged
@@ -227,3 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 2291426140070047119}
   img: {fileID: 2291426140381139322}
+--- !u!114 &6056886450233619920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291426140381139320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 40
+  image: {fileID: 2291426140381139322}

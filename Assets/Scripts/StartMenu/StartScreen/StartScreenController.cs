@@ -13,11 +13,11 @@ namespace StartMenu.StarScreen
 
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
             IStartMenu.Load_StartScreenController(this);
             GeneratePlayerPrefsForProgress();
             DebugCurrentProgress();
-            Application.targetFrameRate = 60;
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
         }
 
         private void DebugCurrentProgress()
@@ -45,7 +45,7 @@ namespace StartMenu.StarScreen
         {
             AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
             yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
-            AsyncOperation async_load = SceneManager.LoadSceneAsync(configuration.PackSelectSceneName);
+            AsyncOperation async_load = SceneManager.LoadSceneAsync(CoreInfomation.PackSelectSceneName);
             while (!async_load.isDone)
             {
                 yield return null;

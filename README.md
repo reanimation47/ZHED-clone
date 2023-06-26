@@ -1,1 +1,1 @@
-#A simplified version of ZHED puzzle game
+## A simplified version of ZHED puzzle game

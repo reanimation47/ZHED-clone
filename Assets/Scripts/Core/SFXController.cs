@@ -9,6 +9,8 @@ namespace Core.Sound
         [SerializeField] private AudioSource _sfx;
         [SerializeField] private AudioClip _genericButtonSFX;
         [SerializeField] private AudioClip _genericCloseButtonSFX;
+        [SerializeField] private AudioClip _genericTileSFX;
+        [SerializeField] private AudioClip _genericVictorySFX;
 
 
         public static SFXController sfxInstance;
@@ -43,7 +45,17 @@ namespace Core.Sound
             _sfx.clip = _genericCloseButtonSFX;
             _sfx.Play();
         }
+        public void PlayTileClickSFX()
+        {
+            _sfx.clip = _genericTileSFX;
+            _sfx.Play();
+        }
 
+        public void PlayVictorySFX()
+        {
+            _sfx.clip = _genericVictorySFX;
+            _sfx.Play();
+        }
         public float GetCurrentSFXVolume()
         {
             return _sfx.volume;

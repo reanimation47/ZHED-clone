@@ -20,9 +20,18 @@ namespace Core
         public static readonly string PlayerPrefs_UnlockedPackIndex_Key = "PlayerPrefs_UnlockedPackIndex_Key";
         public static readonly string PlayerPrefs_CurrentSystemBGMVolume_Key = "PlayerPrefs_CurrentSystemBGMVolume_Key";
         public static readonly string PlayerPrefs_CurrentSystemSFXVolume_Key = "PlayerPrefs_CurrentSystemSFXVolume_Key";
+        public static readonly string PlayerPrefs_CurrentSystemThemeMode_Key = "PlayerPrefs_CurrentSystemSFXVolume_Key";
+        public static readonly string PlayerPrefs_CurrentSystemVibrationMode_Key = "PlayerPrefs_CurrentSystemVibrationMode_Key";
+        public static readonly string ColorTheme_DarkMode = "ColorTheme_DarkMode";
+        public static readonly string ColorTheme_LightMode = "ColorTheme_LightMode";
+
+        public static Color MenuBG = new Color();
+        public static Color MenuBG_DarkMode = new Color(27/255f, 32/255f, 38/255f);
+        public static Color MenuBG_LightMode = new Color(97/255f, 126/255f, 161/255f);
 
         public static readonly int PacksCount = 4; //At current point anything pack above 2 is just a clone of pack 2
         public static readonly int LevelsPerPack = 12;
     }
+
 }
 

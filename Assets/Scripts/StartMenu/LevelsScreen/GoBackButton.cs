@@ -4,7 +4,7 @@ using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace StartMenu.LevelsScreen
+namespace StartMenu
 {
     public class GoBackButton : BasicButtonClass
     {

@@ -23,7 +23,10 @@ namespace Core.Button
 
         private void Update()
         {
-            rectTransform.localScale = scaler;
+            if(rectTransform)
+            {
+                rectTransform.localScale = scaler;
+            }
         }
 
         private void FixedUpdate()

@@ -27,11 +27,13 @@ namespace StartMenu
             {
                 if (colorTheme == CoreInfomation.ColorTheme_DarkMode)
                 {
+                    PlayerPrefs.SetString(CoreInfomation.PlayerPrefs_CurrentSystemThemeMode_Key, CoreInfomation.ColorTheme_DarkMode);
                     cam.backgroundColor = CoreInfomation.MenuBG_DarkMode;
                 } 
 
                 if (colorTheme == CoreInfomation.ColorTheme_LightMode)
                 {
+                    PlayerPrefs.SetString(CoreInfomation.PlayerPrefs_CurrentSystemThemeMode_Key, CoreInfomation.ColorTheme_LightMode);
                     cam.backgroundColor = CoreInfomation.MenuBG_LightMode;
                 } 
             }else

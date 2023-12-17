@@ -8,6 +8,8 @@ namespace StartMenu.StarScreen
 {
     public class StartScreenController : MonoBehaviour
     {
+        //  TODO:
+        // +GoTo<Name>Screen functions are re-using the exact same lines of code -> make it 1 generic go to xxx screen function that takes scene name as a param
         BaseConfiguration configuration = new BaseConfiguration();
         [SerializeField] private AlphaMask AlphaMask;
 
@@ -46,6 +48,22 @@ namespace StartMenu.StarScreen
             AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
             yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
             AsyncOperation async_load = SceneManager.LoadSceneAsync(CoreInfomation.PackSelectSceneName);
+            while (!async_load.isDone)
+            {
+                yield return null;
+            }
+        }
+
+        public void SettingsButtonClicked()
+        {
+            StartCoroutine(GoToSettingsScreen());
+        }
+        IEnumerator GoToSettingsScreen()
+        {
+            AlphaMask.ToggleBackgroundBlur(1, configuration.TransitionSpeedBetweenScreens);
+            yield return new WaitForSeconds(configuration.TransitionDelayBetweenScreens);
+            //TODO: Settings Scene name here
+            AsyncOperation async_load = SceneManager.LoadSceneAsync(CoreInfomation.SettingsMenuSceneName);
             while (!async_load.isDone)
             {
                 yield return null;

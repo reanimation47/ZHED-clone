@@ -82,6 +82,7 @@ namespace GamePlay.Tiles
         private void OnMouseDown()
         {
             if (node_expanded) { return; } //once expanded, this node is longer clickable
+            Core.Sound.SFXController.sfxInstance.PlayTileClickSFX();
             GeneratePreviews();
             ExpandPreview();
         }
@@ -180,6 +181,7 @@ namespace GamePlay.Tiles
         {
             if (preview_state != preview_states.expanded) { return; }
             if (!is_a_goal_node) { return; }
+            Core.Sound.SFXController.sfxInstance.PlayVictorySFX();
             Debug.LogError("Goal reached!");
             StartCoroutine(CoLoadNextLevel());
         }

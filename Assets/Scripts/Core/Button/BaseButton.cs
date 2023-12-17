@@ -13,6 +13,8 @@ namespace Core.Button
         private float target = 1;
         RectTransform rectTransform;
 
+        public bool isCloseButton = false;
+
         void Start()
         {
             rectTransform = GetComponent<RectTransform>();
@@ -21,7 +23,10 @@ namespace Core.Button
 
         private void Update()
         {
-            rectTransform.localScale = scaler;
+            if(rectTransform)
+            {
+                rectTransform.localScale = scaler;
+            }
         }
 
         private void FixedUpdate()
@@ -40,7 +45,19 @@ namespace Core.Button
         {
             target = 1f;
             if (e.IsPointerMoving()) { return; } //Return if user is swiping
+            PlayButtonVFX();
             ButtonAction();
+        }
+
+        private void PlayButtonVFX()
+        {
+            if (isCloseButton)
+            {
+                Sound.SFXController.sfxInstance.PlayCloseButtonClickSFX();
+            }else
+            {
+                Sound.SFXController.sfxInstance.PlayButtonClickSFX();
+            }
         }
 
         public virtual void SetupAtStart()

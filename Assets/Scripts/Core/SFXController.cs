@@ -24,6 +24,14 @@ namespace Core.Sound
                 Destroy(gameObject);
             }
         }
+        void Start()
+        {
+            if (PlayerPrefs.GetFloat(CoreInfomation.PlayerPrefs_CurrentSystemSFXVolume_Key,-1f) != -1)
+            {
+                float prevVolume = PlayerPrefs.GetFloat(CoreInfomation.PlayerPrefs_CurrentSystemSFXVolume_Key,-1f);
+                _sfx.volume = prevVolume;
+            }
+        }
 
         public void PlayButtonClickSFX()
         {
@@ -35,6 +43,16 @@ namespace Core.Sound
             _sfx.clip = _genericCloseButtonSFX;
             _sfx.Play();
         }
+
+        public float GetCurrentSFXVolume()
+        {
+            return _sfx.volume;
+        }
+        public void SFXVolume(float volume)
+        {
+            _sfx.volume = volume;
+        }
+
 
     }
 }

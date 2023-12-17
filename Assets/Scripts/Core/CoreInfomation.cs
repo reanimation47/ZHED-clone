@@ -18,6 +18,8 @@ namespace Core
 
         public static readonly string PlayerPrefs_UnlockedLevelIndex_Key = "PlayerPrefs_UnlockedLevelIndex_Key";
         public static readonly string PlayerPrefs_UnlockedPackIndex_Key = "PlayerPrefs_UnlockedPackIndex_Key";
+        public static readonly string PlayerPrefs_CurrentSystemBGMVolume_Key = "PlayerPrefs_CurrentSystemBGMVolume_Key";
+        public static readonly string PlayerPrefs_CurrentSystemSFXVolume_Key = "PlayerPrefs_CurrentSystemSFXVolume_Key";
 
         public static readonly int PacksCount = 4; //At current point anything pack above 2 is just a clone of pack 2
         public static readonly int LevelsPerPack = 12;

@@ -42,6 +42,7 @@ namespace StartMenu
         #endregion
 
         #region  LevelsSelectController
+
         private static int CurrentLevelIndex = 0;
         private static LevelsScreen.LevelsSelectController LevelsSelectController;
         public static void Load_LevelsSelectController(LevelsScreen.LevelsSelectController controller)
@@ -58,6 +59,11 @@ namespace StartMenu
             return CurrentLevelIndex;
         }
         #endregion
+
+        public static void PlayButtonClickSFX()
+        {
+            
+        }
     }
 
 }

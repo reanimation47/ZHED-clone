@@ -10,9 +10,10 @@ using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
+    [SerializeField] private string ControllerTag;
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(ControllerTag);
 
         if (objs.Length > 1)
         {
